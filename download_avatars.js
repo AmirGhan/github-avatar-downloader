@@ -34,7 +34,7 @@ function downloadImageByURL(url, filePath) {
 };
 
 
-getRepoContributors("jquery", "jquery", function(err, result) {
+getRepoContributors(process.argv[2], process.argv[3], function(err, result) {
   result.forEach(function(element){
     var avatarURL = element["avatar_url"];
     var fileName = element["login"];
