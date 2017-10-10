@@ -33,12 +33,13 @@ function downloadImageByURL(url, filePath) {
 
 };
 
-downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "./avatars/kvirani.jpg")
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   result.forEach(function(element){
-    console.log(element["avatar_url"])
-   // downloadImageByURL(element["avatar_url"], )
+    var avatarURL = element["avatar_url"];
+    var fileName = element["login"];
+    var filePath = "./avatars/" + fileName + ".jpg";
+   downloadImageByURL(avatarURL, filePath);
   });
 
 });
