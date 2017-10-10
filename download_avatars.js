@@ -15,14 +15,20 @@ function getRepoContributors(repoOwner, repoName, cb) {
   
   request(options, function(err, response, body){
     if (err) throw err;
-    //console.log(response);
-    console.log(body);
+
+    var listOfContributers = JSON.parse(body);
+
+    cb(err, listOfContributers);
 
   });
 }
 
 
+
 getRepoContributors("jquery", "jquery", function(err, result) {
-  console.log("Errors:", err);
-  console.log("Result:", result);
+  result.forEach(function(element){
+    console.log(element["avatar_url"])
+  });
+
 });
+
