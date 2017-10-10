@@ -1,3 +1,11 @@
+if (process.argv[2] === undefined) {
+  console.log("Please enter the repo owner");
+  return;
+} else if (process.argv[3] === undefined) {
+  console.log("Please enter the repo name");
+  return;
+}
+
 var request = require('request');
 var fs = require('fs');
 
