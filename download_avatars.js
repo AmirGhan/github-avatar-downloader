@@ -6,10 +6,15 @@ var GITHUB_USER = "AmirGhan";
 var GITHUB_TOKEN = "5936d38b4959dd31248f9e787cb74af98b535be0";
 
 function getRepoContributors(repoOwner, repoName, cb) {
+  var options = {
+  url: 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors',
+  headers: {
+    'User-Agent': 'request'
+  }
+  };
   
-var requestURL = 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors';
-  request(requestURL, function(err, response, body){
-    console.log(err);
+  request(options, function(err, response, body){
+    if (err) throw err;
     //console.log(response);
     console.log(body);
 
